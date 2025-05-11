@@ -1,85 +1,57 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import AppHeader from "@/components/AppHeader.vue";
+import AppFooter from "@/components/AppFooter.vue";
+import AppNavMent from "@/components/AppNavMent.vue";
+import {RouterView} from "vue-router";
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div id="app-base">
+    <!-- 顶部导航容器 -->
+    <AppHeader id="app-header"></AppHeader>
+    <!-- 主体表格容器 -->
+    <div id="app-body">
+      <!-- 左侧导航菜单栏 -->
+      <div class="col-md-2" style="background: aqua">
+        <AppNavMent></AppNavMent>
+      </div>
+      <!-- 右侧内容区域 -->
+      <div class="col-md-10">
+        <RouterView></RouterView>
+      </div>
     </div>
-  </header>
-
-  <RouterView />
+    <!-- 底部固定页脚 -->
+    <AppFooter id="app-footer"></AppFooter>
+  </div>
+  <!-- todo 上浮菜单 -->
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+#app-base {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   max-height: 100vh;
+  width: 100vw;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+#app-header {
+  height: 50px;
+  width: 100vw;
+  background: cornflowerblue;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+
+#app-footer {
+  height: 25px;
+  width: 100vw;
+  background: cornflowerblue;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+#app-body {
+  flex-grow: 1;
+  height: calc(100vw - 75px);
+  display: flex;
+  flex-direction: row
 }
 </style>
