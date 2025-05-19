@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import {useUIStore} from '@/stores/uiStore.ts'
 
+const uiStore = useUIStore()
+const toggleTheme = () => {
+  uiStore.toggleTheme()
+}
 </script>
 
 <template>
@@ -14,6 +19,9 @@
       <div style="flex-grow: 1"></div>
       <!-- 右侧内容 -->
       <div>
+        <button @click="toggleTheme" class="btn btn-sm">
+          {{ uiStore.isDarkMode ? '☀️' : '🌙' }}
+        </button>
         <a>右侧内容</a>
       </div>
     </div>

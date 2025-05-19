@@ -12,7 +12,7 @@ import {RouterView} from "vue-router";
     <!-- 主体表格容器 -->
     <div id="app-body">
       <!-- 左侧导航菜单栏 -->
-      <div class="col-md-2" style="background: aqua">
+      <div class="col-md-2">
         <AppNavMent></AppNavMent>
       </div>
       <!-- 右侧内容区域 -->
@@ -38,14 +38,14 @@ import {RouterView} from "vue-router";
 #app-header {
   height: 50px;
   width: 100vw;
-  background: cornflowerblue;
+  border-bottom: 1px solid var(--bs-tertiary-color);
+  padding: 12px;
 }
-
 
 #app-footer {
   height: 25px;
   width: 100vw;
-  background: cornflowerblue;
+  border-top: 1px solid var(--bs-tertiary-color);
 }
 
 #app-body {
